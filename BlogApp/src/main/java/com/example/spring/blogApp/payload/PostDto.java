@@ -10,7 +10,7 @@ import java.lang.annotation.RetentionPolicy;
 @Data
 public class PostDto {
 
-    private Long id;
+    private long id;
     private String title;
     private String description;
     private String content;
