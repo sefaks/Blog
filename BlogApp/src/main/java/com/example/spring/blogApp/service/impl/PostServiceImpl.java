@@ -3,11 +3,13 @@ package com.example.spring.blogApp.service.impl;
 import com.example.spring.blogApp.entity.Post;
 import com.example.spring.blogApp.exception.ResourceNotFoundException;
 import com.example.spring.blogApp.payload.PostDto;
+import com.example.spring.blogApp.payload.PostResponse;
 import com.example.spring.blogApp.repository.PostRepository;
 import com.example.spring.blogApp.service.PostService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,16 +37,31 @@ public class PostServiceImpl implements PostService {
         return postResponse;
     }
     @Override
-    public List<PostDto> getAllPosts(int pageNo,int pageSize) {
+    public PostResponse getAllPosts(int pageNo,int pageSize,String sortBy,String sortDir) {
 
-        Pageable pageable = PageRequest.of(pageNo,pageSize);
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+
+
+        Pageable pageable = PageRequest.of(pageNo,pageSize, Sort.by(sortBy));
 
         Page<Post> posts = postRepository.findAll(pageable);
 
         //get content for page object
         List<Post> listOfPosts = posts.getContent();
 
-        return listOfPosts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        List<PostDto> content = listOfPosts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(content);
+        postResponse.setPageNo(pageNo);
+        postResponse.setPageSize(pageSize);
+        postResponse.setTotalElements(posts.getTotalPages());
+        postResponse.setTotalPages(posts.getTotalPages());
+        postResponse.setLast(posts.isLast());
+
+        return postResponse;
+
     }
     @Override
     public PostDto getPostById(long id) {
