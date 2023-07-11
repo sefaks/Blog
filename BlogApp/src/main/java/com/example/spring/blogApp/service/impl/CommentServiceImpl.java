@@ -38,7 +38,6 @@ public class CommentServiceImpl implements CommentService {
         Comment commentDb = commentRepository.save(comment);
 
        return mapToDTO(commentDb);
-
     }
 
     @Override
@@ -52,7 +51,6 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public CommentDto getCommentById(long postId, long commentId) {
 
-
         Post post = postRepository.findById(postId).orElseThrow(()->
                 new ResourceNotFoundException("Post","id",postId));
 
@@ -60,12 +58,32 @@ public class CommentServiceImpl implements CommentService {
         Comment comment = commentRepository.findById(commentId).orElseThrow(()->
                 new ResourceNotFoundException("Comment","id",commentId));
 
-        if(!comment.getPost().getId().(post.getId())){
-            throw  new BlogAPIException(HttpStatus.BAD_REQUEST,"Comment  does not belong to post");
-            
+        if(comment.getPost().getId() != post.getId()) {
+            throw  new BlogAPIException(HttpStatus.BAD_REQUEST,"Comment does not belong to post");
+        }
+        return mapToDTO(comment);
         }
 
+    @Override
+    public CommentDto updateComment(long postId, long commentId, CommentDto commentRequest) {
 
+        Post post = postRepository.findById(postId).orElseThrow(() ->
+                new ResourceNotFoundException("Post", "id", postId));
+
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() ->
+                new ResourceNotFoundException("Comment", "id", commentId));
+
+        if (comment.getPost().getId() != post.getId()) {
+            throw new BlogAPIException(HttpStatus.BAD_REQUEST, "Comment does not belong to post");
+        }
+
+        comment.setEmail(commentRequest.getEmail());
+        comment.setName(commentRequest.getName());
+        comment.setBody(commentRequest.getBody());
+
+        Comment updatedComment = commentRepository.save(comment);
+
+        return mapToDTO(updatedComment);
 
     }
 
@@ -79,7 +97,6 @@ public class CommentServiceImpl implements CommentService {
 
         return commentDto;
     }
-
     // convert CommentDTO to entity
     private Comment mapToEntity(CommentDto commentDto){
         Comment comment = new Comment();

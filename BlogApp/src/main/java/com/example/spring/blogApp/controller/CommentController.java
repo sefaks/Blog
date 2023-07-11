@@ -1,6 +1,8 @@
 package com.example.spring.blogApp.controller;
 
+import com.example.spring.blogApp.entity.Comment;
 import com.example.spring.blogApp.payload.CommentDto;
+import com.example.spring.blogApp.payload.PostDto;
 import com.example.spring.blogApp.service.CommentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +33,24 @@ public class CommentController {
 
         return commentService.getCommentsByPostId(postId);
     }
+
+    @GetMapping("/posts/{postId}/comments/{id}")
+    public ResponseEntity<CommentDto> getCommentById(@PathVariable(value = "postId") long postId,
+                                                  @PathVariable(value = "id") long commentId){
+
+        CommentDto commentDto = commentService.getCommentById(postId, commentId);
+        return new ResponseEntity<>(commentDto,HttpStatus.OK);
+
+    }
+
+    @PostMapping("/posts/{postId/comments/{id}/update")
+    public ResponseEntity<CommentDto> updateComment(@PathVariable(value="postId") long postId,@PathVariable(value="commentId") long commentId,
+                                                    @RequestBody CommentDto commentRequest){
+
+        CommentDto commentDto = commentService.updateComment(postId,commentId,commentRequest);
+        return new ResponseEntity<>(commentDto,HttpStatus.OK);
+    }
+
+
 
 }
