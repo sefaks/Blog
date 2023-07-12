@@ -42,7 +42,7 @@ public class CommentController {
         return new ResponseEntity<>(commentDto,HttpStatus.OK);
     }
 
-    @PutMapping("/posts/{postId/comments/{id}/update")
+    @PutMapping("/posts/{postId}/comments/{id}/update")
     public ResponseEntity<CommentDto> updateComment(@PathVariable(value="postId") long postId,
                                                     @PathVariable(value="id") long commentId,
                                                     @RequestBody CommentDto commentRequest){
@@ -50,7 +50,7 @@ public class CommentController {
         CommentDto updatedComment = commentService.updateComment(postId,commentId,commentRequest);
         return new ResponseEntity<>(updatedComment,HttpStatus.OK);
     }
-    @DeleteMapping("/posts/{postId/comments/{id}/delete")
+    @DeleteMapping("/posts/{postId}/comments/{id}/delete")
     public ResponseEntity<String> deleteComment(@PathVariable(value = "postId")long postId,
                                                  @PathVariable(value="id")long commentId){
 
