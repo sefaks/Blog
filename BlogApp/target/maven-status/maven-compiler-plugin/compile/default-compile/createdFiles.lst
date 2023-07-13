@@ -1,8 +1,0 @@
-com\example\spring\blogApp\entity\Post.class
-com\example\spring\blogApp\repository\PostRepository.class
-com\example\spring\blogApp\BlogAppApplication.class
-com\example\spring\blogApp\service\impl\PostServiceImpl.class
-com\example\spring\blogApp\exception\ResourceNotFoundException.class
-com\example\spring\blogApp\payload\PostDto.class
-com\example\spring\blogApp\service\PostService.class
-com\example\spring\blogApp\controller\PostController.class

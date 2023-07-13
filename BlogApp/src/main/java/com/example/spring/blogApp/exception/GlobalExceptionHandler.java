@@ -3,6 +3,7 @@ package com.example.spring.blogApp.exception;
 import com.example.spring.blogApp.payload.ErrorDetails;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -46,7 +47,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     }
 
-    @ExceptionHandler(BlogAPIException.class)
+    @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorDetails>  handleGlobalException(Exception exception,
                                                                 WebRequest webRequest) {
 
@@ -59,7 +60,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     protected  ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                    HttpHeaders headers,
-                                                                   HttpStatus status,
+                                                                   HttpStatusCode status,
                                                                    WebRequest request){
         Map<String,String> errors =   new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error)->{
