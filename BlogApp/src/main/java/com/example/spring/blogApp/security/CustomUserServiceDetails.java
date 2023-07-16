@@ -25,7 +25,7 @@ public class CustomUserServiceDetails implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 
-       User user = userRepository.findByUsernameOrEmail(usernameOrEmail,usernameOrEmail).orElseThrow(
+       User user = userRepository.findByUserNameOrEmail(usernameOrEmail,usernameOrEmail).orElseThrow(
                 ()-> new UsernameNotFoundException("User name not found with username or email: " + usernameOrEmail));
 
         Set<GrantedAuthority> authorities = user.getRoles().stream().map((role)->
