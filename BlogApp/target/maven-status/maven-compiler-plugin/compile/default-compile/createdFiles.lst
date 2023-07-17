@@ -24,6 +24,7 @@ com\example\spring\blogApp\BlogAppApplication.class
 com\example\spring\blogApp\exception\BlogAPIException.class
 com\example\spring\blogApp\exception\GlobalExceptionHandler.class
 com\example\spring\blogApp\service\AuthService.class
+com\example\spring\blogApp\payload\RegisterDto.class
 com\example\spring\blogApp\payload\PostResponse.class
 com\example\spring\blogApp\controller\AuthController.class
 com\example\spring\blogApp\repository\UserRepository.class

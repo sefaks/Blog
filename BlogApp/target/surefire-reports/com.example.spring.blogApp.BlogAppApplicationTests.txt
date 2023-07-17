@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.spring.blogApp.BlogAppApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.493 s - in com.example.spring.blogApp.BlogAppApplicationTests

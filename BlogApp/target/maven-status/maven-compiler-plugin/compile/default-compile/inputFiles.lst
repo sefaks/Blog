@@ -6,6 +6,7 @@ C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\
 C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\utils\AppConstants.java
 C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\entity\User.java
 C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\service\PostService.java
+C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\payload\RegisterDto.java
 C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\exception\BlogAPIException.java
 C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\repository\UserRepository.java
 C:\Users\staj_sefa.kose\Documents\GitHub\Blog\BlogApp\src\main\java\com\example\spring\blogApp\service\CommentService.java
