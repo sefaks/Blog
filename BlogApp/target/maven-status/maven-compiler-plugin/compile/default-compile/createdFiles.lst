@@ -13,6 +13,7 @@ com\example\spring\blogApp\service\impl\PostServiceImpl.class
 com\example\spring\blogApp\exception\ResourceNotFoundException.class
 com\example\spring\blogApp\service\CommentService.class
 com\example\spring\blogApp\controller\PostController.class
+com\example\spring\blogApp\security\JwtAuthenticationEnrtyPoint.class
 com\example\spring\blogApp\payload\ErrorDetails.class
 com\example\spring\blogApp\utils\AppConstants.class
 com\example\spring\blogApp\controller\CommentController.class
@@ -25,6 +26,7 @@ com\example\spring\blogApp\exception\BlogAPIException.class
 com\example\spring\blogApp\exception\GlobalExceptionHandler.class
 com\example\spring\blogApp\service\AuthService.class
 com\example\spring\blogApp\payload\RegisterDto.class
+com\example\spring\blogApp\security\JwtTokenProvider.class
 com\example\spring\blogApp\payload\PostResponse.class
 com\example\spring\blogApp\controller\AuthController.class
 com\example\spring\blogApp\repository\UserRepository.class
