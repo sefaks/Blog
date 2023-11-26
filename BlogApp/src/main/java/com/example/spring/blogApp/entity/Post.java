@@ -23,8 +23,6 @@ public class Post {
     private long id;
     @Column(name="title",nullable = false)
     private String title;
-
-    private String notTitle;
     
     @Column(name="description",nullable = false)
     private String description;
